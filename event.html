@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>تفاصيل الفعالية</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold text-white">
+دليل الفعاليات
+</a>
+
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">الرئيسية</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="events.html">الفعاليات</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">عن الدليل</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">اتصل بنا</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <div class="container mt-5">
+
+        <h2 id="eventTitle"></h2>
+
+        <img id="eventImage" class="img-fluid rounded shadow" style="max-height:500px;width:100%;object-fit:cover;">
+
+        <p class="mt-4 fs-5" id="eventDesc"></p>
+
+        <p>
+            <strong>التاريخ:</strong>
+            <span id="eventDate"></span>
+        </p>
+
+        <p>
+            <strong>المكان:</strong>
+            <span id="eventPlace"></span>
+        </p>
+
+        <button class="btn btn-success">
+أضف للتقويم
+</button>
+
+        <button class="btn btn-primary">
+مشاركة
+</button>
+
+    </div>
+
+
+
+    <footer class="footer mt-5">
+        <p>
+            © 2026 دليل الفعاليات - جميع الحقوق محفوظة
+        </p>
+    </footer>
+
+
+    <script>
+        const eventsData = {
+
+            1: {
+                title: "فعاليات ترفيهية",
+                image: "images/photo_6.jpg",
+                desc: "حيث اعتادت الجامعة الافتراضية السورية على إقامة حفلات تخرج سنوية في دار الأسد للثقافة والفنون.",
+                date: "5/2/2022",
+                place: "دمشق"
+            },
+
+            2: {
+                title: "فعاليات برمجية",
+                image: "images/photo_2.jpg",
+                desc: "حيث قامت الجامعة الافتراضية السورية بالمشاركة بإطلاق هذه الفعالية مع هيئة التميز والابداع وتتضمن أيضا مسابقات لتنمية مهارة الروبوت والذكاء الاصطناعي.",
+                date: "8/4/2023",
+                place: "دمشق"
+            },
+
+            3: {
+                title: "فعاليات تقنية",
+                image: "images/photo_3.jpg",
+                desc: "من الهندسة إلى البرمجة عبر مركز التعلم مدى الحياة  رحلة نحو المستقبل بالتعاون مع شركة المبرمجين.",
+                date: "1/1/2026",
+                place: "دمشق"
+            },
+
+            4: {
+                title: "فعاليات ثقافية",
+                image: "images/photo_4.jpg",
+                desc: "يث يكثر تواجد وتردد الجامعة الافتراضية السورية في معارض تكنولوجيا المعلومات والاتصالات لتقديم خدماتها التكنولوجية.",
+                date: "5/5/2025",
+                place: "دمشق"
+            },
+            5: {
+                title: "فعاليات مهنية",
+                image: "images/enent..jpg",
+                desc: "ورش العمل البحثية حيث كان للجامعة الافتراضية السورية ظهور بارز في ورشات عمل حول دور الجامعات في التنمية المستدامة بالتعاون مع منظمة اليونيسكو ز",
+                date: "6/6/2022",
+                place: "دمشق"
+            },
+            6: {
+                title: "فعاليات أكاديمية",
+                image: "images/photo_5.jpg",
+                desc: "فعاليات تفاعلية بمشاركة خبراء وطلاب بمساعدة الشباب في تحديدمساراتهم المهنية والاكاديمية .",
+                date: "6/6/2023",
+                place: "دمشق"
+            }
+
+        };
+
+
+        const params =
+            new URLSearchParams(window.location.search);
+
+        const id = params.get("id");
+
+
+        if (eventsData[id]) {
+
+            document.getElementById("eventTitle").innerText =
+                eventsData[id].title;
+
+            document.getElementById("eventImage").src =
+                eventsData[id].image;
+
+            document.getElementById("eventDesc").innerText =
+                eventsData[id].desc;
+
+            document.getElementById("eventDate").innerText =
+                eventsData[id].date;
+
+            document.getElementById("eventPlace").innerText =
+                eventsData[id].place;
+
+        } else {
+
+            document.getElementById("eventTitle").innerText =
+                "الفعالية غير موجودة";
+
+        }
+    </script>
+
+</body>
+
+</html>
